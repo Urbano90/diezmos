@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Valculo de Diezmos</title>
+    <style media="screen">
+    @import url('https://fonts.googleapis.com/css2? family=Roboto+Slab:wght@500&family=Roboto:ital,wght@0,400;1,500&family=Syne+Mono&display=swap');
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+        background-color: black;
+        background: linear-gradient(45deg, #245a80,#C70039);
+        box-shadow:  26px 26px 52px #273746,
+             -26px -26px 52px #273746;
+
+    }
+    .title {
+        margin-top: 10px;
+        text-align: center;
+        color: black;
+    }
+    .subTitle {
+        margin-top: 30px;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        font-family: 'Roboto Slab', serif;
+    }
+    .section {
+        display: flex;
+        display: grid;
+        justify-content: center;
+        height: 600px;
+        width: 400px;
+        border: 3px gray solid;
+        border-radius: 40px;
+        margin-top: 10px;
+        font-family: 'Roboto Slab', serif;
+        margin-bottom: 15px;
+    }
+    .divInput {
+        position: relative;
+        left: 30px;
+    }
+    label {
+      font-size: 18px;
+      font-family: 'Roboto Slab', serif;
+    }
+    .inputPrice {
+        background-color: #e2e2e2;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 40px;
+        width: 120px;
+        border-radius: 10px;
+        color: black;
+        font-size: 16px;
+        text-align: center;
+    }
+    .inputDesc {
+        background-color: #e2e2e2;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 40px;
+        width: 50px;
+        border-radius: 10px;
+        color: black;
+        font-size: 16px;
+        text-align: center;
+    }
+    .button {
+       display: flex;
+       justify-content: center;
+    }
+    .bottonCalcular {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 40px;
+        width: 100px;
+        color: white;
+        font-size: 14px;
+        margin: 10px;
+        border-radius: 33px;
+        background: #22c780;
+    }
+    .inputReset {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 40px;
+        width: 100px;
+        color: white;
+        font-size: 14px;
+        border-radius: 33px;
+        background: #e37c15;
+    }
+    .inputReset:hover {
+        background-color: #b40800;
+    }
+    .divResultPrice {
+        display: flex;
+        background-color: #e2e2e2;
+        height: 100px;
+        width: 300px;
+        color: black;
+        border-radius: 10px;
+        position: relative;
+       left: 45px;
+       font-family: 'Roboto Slab', serif;
+    }
+    .titleResult {
+        margin-top: 10px;
+        font-size: 18px;
+        text-align: center;
+    }
+    .subTitle2 {
+      position: relative;
+      left: 30px;
+      margin-right: 50px;
+      margin-top: 10px;
+    }
+    .copyring {
+      color: #808000;
+      font-size: 19px;
+      position: relative;
+      left: 70px;
+    }
+    .instagram {
+    margin: 10px;
+    position: relative;
+    left: 35px;
+    text-decoration: none;
+    color: #FF5733;
+    background-color: white;
+    font-weight:bold;
+  }
+  .twitter {
+    margin: 10px;
+    position: relative;
+    left: 35px;
+    text-decoration: none;
+    color: #2E86C1;
+    background-color: white;
+    font-weight:bold;
+  }
+  .linkedin {
+    margin: 10px;
+    position: relative;
+    left: 35px;
+    text-decoration: none;
+    color: #85C1E9;
+    background-color: white;
+    font-weight:bold;
+   }
+  .github {
+    margin-left: 10px;
+    position: relative;
+    left: 40px;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    font-weight:bold;
+      }
+   /*  Aquí empiezan los mediaQueris*/
+    @media(max-width: 400px) {
+      .section{
+          width: 360px;
+      }
+      .copyring {
+        position: relative;
+        left: 40px;
+      }
+      .divResultPrice {
+          width: 270px;
+      }
+      .instagram {
+     margin: 8px;
+     position: relative;
+     left: 8px;
+     text-decoration: none;
+   }
+   .twitter {
+     margin: 8px;
+     position: relative;
+     left: 8px;
+     text-decoration: none;
+   }
+   .linkedin {
+     margin: 8px;
+     position: relative;
+     left: 8px;
+     text-decoration: none;
+    }
+   .github {
+     margin: 8px;
+     position: relative;
+     left: 8px;
+     text-decoration: none;
+       }
+    }
+    </style>
+</head>
+<body>
+    <main>
+
+        <section class="section">
+            <h2 class="subTitle">Calcula tus diezmos automáticamente con facilidad.</h2>
+            <form class="form">
+                <div class="divInput">
+                    <label for="InputPrice" >Dinero Ganado</label >
+                        <input id="InputPrice" type="number" placeholder="Ganancias" class="inputPrice"> Frs.  <br>
+                        <label for="InputDiscount">Ingrese su 10% de diezmo</label>
+                        <input  id="InputDiscount" type="number"  placeholder="%" class="inputDesc"> %
+                </div>
+                <div class="button">
+                    <button type="button"  onclick="onClickButtonPriceDiscount()" class="bottonCalcular"> Calcular</button>
+                    <input type="submit" class="inputReset" value="Borrar">
+                </div>
+                <div  class="divResultPrice">
+                    <h3 class="titleResult" id="ResultPrice"> Resultado de lo que tienes que pagar de diezmo.</h3>
+                </div>
+                <p class="subTitle2">Malaquias 3:10 <br> <br>
+                  10 Traed todos los diezmos al alfolí y haya alimento en mi casa; y probadme ahora en esto,
+                  dice Jehová de los ejércitos, si no os abriré las ventanas de los cielos,
+                   y derramaré sobre vosotros bendición hasta que sobreabunde.</p>
+            </form>
+             <p class="copyring"> Sígueme como UrbanyDev en:  </p>
+        </section>
+        <a class="instagram" href="https://www.instagram.com/urbanomangomo/?hl=es">Instagram</a>  <a class="twitter" href="https://twitter.com/UrbanoAkoro">Twitter</a>
+        <a class="linkedin" href="https://www.linkedin.com/in/urbano-akoro-mangomo-a4546b228/">Linkedin</a> <a class="github" href="https://github.com/Urbano90">GitHub</a>
+
+
+
+    </main>
+    <script>
+    function calcularPrecioConDescuento (precio, descuento) {
+        const precioConDescuento =  (precio * descuento) / 100;
+        return precioConDescuento;
+    }
+
+
+    function onClickButtonPriceDiscount() {  //  Llamada de la function con el boton creado en html paara sacarnos el resultado
+    const inputPrice = document.getElementById("InputPrice"); // El input del precio interactuado con el id del html
+    const priceValue = inputPrice.value;
+
+    const inputDiscount = document.getElementById("InputDiscount"); // El input del descuento interactuado con el id del html
+    const discountValue = inputDiscount.value;
+
+
+    const precioConDescuento =  calcularPrecioConDescuento(priceValue, discountValue);   // Aquí llamamos la function de la operación arriba realizada
+    const ResultPrice = document.getElementById("ResultPrice");   // interactuamos con el espacio que hemos creado en html para sacar el resultado
+    ResultPrice.innerText = "El precio a pagar con descuento es: " + precioConDescuento + " Francos";
+
+    }
+    console.log(PrecioConDescuento(10000,10))  </script>
+</body>
+</html>
