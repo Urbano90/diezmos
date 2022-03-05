@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calcular tus diezmos de manera automática sin neccesidad de hacer muchos cálculos y te saca
+    el reultado en Euros, Dolar y Francos" />
     <link rel="stylesheet" href="style.css">
-    <title>Calculo de Diezmos</title>
+    <title>Cálculo de Diezmos</title>
     <style media="screen">
     @import url('https://fonts.googleapis.com/css2? family=Roboto+Slab:wght@500&family=Roboto:ital,wght@0,400;1,500&family=Syne+Mono&display=swap');
     * {
@@ -72,9 +74,9 @@
         margin-top: 10px;
         margin-bottom: 10px;
         height: 40px;
-        width: 50px;
+        width: 60px;
         border-radius: 10px;
-        color: black;
+        color:black;
         font-size: 16px;
         text-align: center;
     }
@@ -175,6 +177,9 @@
       .section{
           width: 360px;
       }
+      .inputPrice {
+          width: 100px;
+      }
       .copyring {
         position: relative;
         left: 40px;
@@ -210,57 +215,60 @@
     </style>
 </head>
 <body>
-    <main>
+<main>
+  <section class="section">
+      <h2 class="subTitle">Calcula tus diezmos automáticamente con facilidad.</h2>
+      <form class="form">
+          <div class="divInput">
+              <label for="InputPrice" >Dinero Ganado</label >
+                  <input id="InputPrice" type="number" placeholder="Ganancias" class="inputPrice">
+                  <select class="inputDesc " name="" id="moneda">
+                    <option value="Euro">Є</option>
+                    <option value="Dólares">$</option>
+                    <option value="Francos">CFA</option>
+                  </select>  <br>
+                  <label for="InputDiscount">Ingrese su 10% de diezmo</label>
+                  <input  id="InputDiscount" type="number"  placeholder="%" class="inputDesc"> %
+          </div>
+          <div class="button">
+              <button type="button"  onclick="onClickButtonPriceDiscount()" class="bottonCalcular"> Calcular</button>
+              <input type="submit" class="inputReset" value="Borrar">
+          </div>
+          <div  class="divResultPrice">
+              <h3 class="titleResult" id="ResultPrice"> Resultado de lo que tienes que pagar de diezmo.</h3>
+          </div>
+          <p class="subTitle2">Malaquias 3:10 <br> <br>
+            10 Traed todos los diezmos al alfolí y haya alimento en mi casa; y probadme ahora en esto,
+            dice Jehová de los ejércitos, si no os abriré las ventanas de los cielos,
+             y derramaré sobre vosotros bendición hasta que sobreabunde.</p>
+      </form>
+       <p class="copyring"> Sígueme como UrbanyDev en: 👇🏾  </p>
+  </section>
+  <a class="instagram" href="https://www.instagram.com/urbanomangomo/?hl=es">Instagram</a>  <a class="twitter" href="https://twitter.com/UrbanoAkoro">Twitter</a>
+  <a class="linkedin" href="https://www.linkedin.com/in/urbano-akoro-mangomo-a4546b228/">Linkedin</a> <a class="github" href="https://github.com/Urbano90">GitHub</a>
 
-        <section class="section">
-            <h2 class="subTitle">Calcula tus diezmos automáticamente con facilidad.</h2>
-            <form class="form">
-                <div class="divInput">
-                    <label for="InputPrice" >Dinero Ganado</label >
-                        <input id="InputPrice" type="number" placeholder="Ganancias" class="inputPrice"> Frs.  <br>
-                        <label for="InputDiscount">Ingrese su 10% de diezmo</label>
-                        <input  id="InputDiscount" type="number"  placeholder="%" class="inputDesc"> %
-                </div>
-                <div class="button">
-                    <button type="button"  onclick="onClickButtonPriceDiscount()" class="bottonCalcular"> Calcular</button>
-                    <input type="submit" class="inputReset" value="Borrar">
-                </div>
-                <div  class="divResultPrice">
-                    <h3 class="titleResult" id="ResultPrice"> Resultado de lo que tienes que pagar de diezmo.</h3>
-                </div>
-                <p class="subTitle2">Malaquias 3:10 <br> <br>
-                  10 Traed todos los diezmos al alfolí y haya alimento en mi casa; y probadme ahora en esto,
-                  dice Jehová de los ejércitos, si no os abriré las ventanas de los cielos,
-                   y derramaré sobre vosotros bendición hasta que sobreabunde.</p>
-            </form>
-             <p class="copyring"> Sígueme como UrbanyDev en:  </p>
-        </section>
-        <a class="instagram" href="https://www.instagram.com/urbanomangomo/?hl=es">Instagram</a>  <a class="twitter" href="https://twitter.com/UrbanoAkoro">Twitter</a>
-        <a class="linkedin" href="https://www.linkedin.com/in/urbano-akoro-mangomo-a4546b228/">Linkedin</a> <a class="github" href="https://github.com/Urbano90">GitHub</a>
-
-
-
-    </main>
-    <script>
-    function calcularPrecioConDescuento (precio, descuento) {
-        const precioConDescuento =  (precio * descuento) / 100;
-        return precioConDescuento;
-    }
-
-
-    function onClickButtonPriceDiscount() {  //  Llamada de la function con el boton creado en html paara sacarnos el resultado
-    const inputPrice = document.getElementById("InputPrice"); // El input del precio interactuado con el id del html
-    const priceValue = inputPrice.value;
-
-    const inputDiscount = document.getElementById("InputDiscount"); // El input del descuento interactuado con el id del html
-    const discountValue = inputDiscount.value;
+</main>
+<script>
+function calcularPrecioConDescuento (precio, descuento) {
+  const precioConDescuento =  (precio * descuento) / 100;
+  return precioConDescuento;
+}
 
 
-    const precioConDescuento =  calcularPrecioConDescuento(priceValue, discountValue);   // Aquí llamamos la function de la operación arriba realizada
-    const ResultPrice = document.getElementById("ResultPrice");   // interactuamos con el espacio que hemos creado en html para sacar el resultado
-    ResultPrice.innerText = "El precio a pagar con descuento es: " + precioConDescuento + " Francos";
+function onClickButtonPriceDiscount() {  //  Llamada de la function con el boton creado en html paara sacarnos el resultado
+const inputPrice = document.getElementById("InputPrice"); // El input del precio interactuado con el id del html
+const priceValue = inputPrice.value;
+const inputDiscount = document.getElementById("InputDiscount"); // El input del descuento interactuado con el id del html
+const discountValue = inputDiscount.value;
+const dinero = document.getElementById("moneda");  // el select de la moneda interractuando con html
+const dineroValue = dinero.value;
 
-    }
-    console.log(PrecioConDescuento(10000,10))  </script>
+const precioConDescuento =  calcularPrecioConDescuento(priceValue, discountValue);   // Aquí llamamos la function de la operación arriba realizada
+const ResultPrice = document.getElementById("ResultPrice");   // interactuamos con el espacio que hemos creado en html para sacar el resultado
+ResultPrice.innerText = `El precio a pagar con descuento es:   ${precioConDescuento }  ${dineroValue}`;
+
+}
+console.log(PrecioConDescuento(10000,10))  </script>
+
 </body>
 </html>
