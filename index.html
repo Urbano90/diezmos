@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -225,7 +226,7 @@
               <label for="InputPrice" >Dinero Ganado</label >
                   <input id="InputPrice" type="number" placeholder="Ganancias" class="inputPrice">
                   <select class="inputDesc " name="" id="moneda">
-                    <option value="Euro">Є</option>
+                    <option value="Euros">Є</option>
                     <option value="Francos">CFA</option>
                     <option value="Dolares">$</option>
                   </select>  <br>
@@ -267,7 +268,7 @@ const dineroValue = dinero.value;
 
 const precioConDescuento =  calcularPrecioConDescuento(priceValue, discountValue);   // Aquí llamamos la function de la operación arriba realizada
 const ResultPrice = document.getElementById("ResultPrice");   // interactuamos con el espacio que hemos creado en html para sacar el resultado
-ResultPrice.innerText = `Tienes que pagar:   ${precioConDescuento }  ${dineroValue} de diezmos`;
+ResultPrice.innerText = `Tienes que pagar:   ${precioConDescuento }  ${dineroValue} de diezmo`;
 
 }
 console.log(PrecioConDescuento(10000,10))  </script>
